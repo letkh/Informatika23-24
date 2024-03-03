@@ -1,0 +1,1 @@
+s = [int(x) for x in open('source/17-35.txt')]; res = [s[i] for i in range(len(s)) if abs(s[i]) % 3 == 0 and abs(s[i]) % 7 != 0 and abs(s[i]) % 17 != 0 and max([x for x in s if x % 10 == 2]) % s[i] == 0]; print(len(res), max(res))
