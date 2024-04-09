@@ -13,8 +13,8 @@ for i in range(n):
     a[i] = int(f.readline().strip())
 a = a[-m:] + a + a[:m]
 ps = prefix_sum_array(a)
-for i in range(n + m + 1):
-    s = ps[i + m] - ps[i - 1]
+for i in range(n - (2 * m)):
+    s = ps[i + (2 * m)] - ps[i]
     ms = max(s, ms)
 
 print(ms)
