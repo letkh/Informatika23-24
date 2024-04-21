@@ -12,6 +12,8 @@ for i in range(n):
 
 tmp = 0
 for i in range(1, n):
+    if abs(data[0][0] - data[i][0]) >= m:
+        break
     tmp += (data[i][0] - data[0][0]) * data[i][1]
     right += data[i][1]
 res.append(tmp)
@@ -19,4 +21,5 @@ for i in range(1, n):
     right -= data[i][1]
     left += data[i-1][1]
     res.append(res[i-1] - right*(data[i][0] - data[i-1][0]) + left*(data[i][0] - data[i-1][0]) - data[i][1]*(data[i][0] - data[i-1][0]))
+print(res)
 print(max(res))

@@ -9,12 +9,15 @@ n, m = map(int, f.readline().split())
 m = m // 8
 a = [0]*n
 ms = 0
+res = []
 for i in range(n):
     a[i] = int(f.readline().strip())
 a = a[-m:] + a + a[:m]
 ps = prefix_sum_array(a)
 for i in range(n - (2 * m)):
-    s = ps[i + (2 * m)] - ps[i]
+    s = ps[i + (2 * m) + 1] - ps[i]
+    if ms != max(s, ms):
+        res.append(i)
     ms = max(s, ms)
 
-print(ms)
+print(max(res) * 8)
